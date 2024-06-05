@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
+using System;
+using Nova_UI.Presenter;
+using Nova_UI.Model;
 
 namespace Nova_UI
 {
@@ -16,7 +15,12 @@ namespace Nova_UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Nova_UI());
+            
+            var view = new Nova_UI();
+            var model = new MapModel();
+            MapPresenter presenter = new MapPresenter(view, model);
+
+            Application.Run(view);
         }
     }
 }
